@@ -11,6 +11,7 @@ import { Env } from 'src/env'
       inject: [ConfigService],
       useFactory(config: ConfigService<Env, true>) {
         const secret = config.get('JWT_SECRET', { infer: true })
+        const publicKey = config.get('JWT_PUBLIC_KEY', { infer: true })
 
         return {
           secret,
